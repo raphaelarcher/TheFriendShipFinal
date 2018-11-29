@@ -1,0 +1,17 @@
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.spacing {
+  padding-right: 15px;
+}
