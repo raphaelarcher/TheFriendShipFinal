@@ -1,9 +1,9 @@
-<form (submit)="submit(myform)" #myform="ngForm" fxShow="true" fxHide.lt-md="true">
-  <mat-form-field class="usrpwd">
+<form (submit)="submit(myform)" #myform="ngForm">
+  <mat-form-field class="usernamepasword">
     <input placeholder="User name" name="username" [(ngModel)]="model.username" matInput required />
   </mat-form-field>
-
-  <mat-form-field class="usrpwd">
+  l
+  <mat-form-field class="usernamepassword">
     <input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" matInput required />
   </mat-form-field>
 
