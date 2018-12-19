@@ -41,11 +41,20 @@ namespace TheFriendShip
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddDbContext<UserContext>(options =>
+            services.AddDbContext<TFS_UserContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TFS_UserContext")));
 
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<UserContext>();
+            services.AddIdentity<User, IdentityRole>(o =>
+            {
+                // configure identity options
+                o.Password.RequireDigit = false;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 4;
+            })
+    .AddEntityFrameworkStores<TFS_UserContext>()
+    .AddSignInManager<SignInManager<User>>();
 
             var key = Encoding.ASCII.GetBytes("Secret Testing Key");
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
